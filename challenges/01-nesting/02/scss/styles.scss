@@ -1,9 +1,9 @@
-$clr-primary-400: hsl(206, 33%, 37%);
-$clr-primary-500: hsl(206, 33%, 25%);
-$clr-secondary-400: hsl(253, 27%, 35%);
-$clr-secondary-500: hsl(253, 27%, 20%);
-$clr-accent-400: hsl(45, 82%, 65%);
-$clr-accent-500: hsl(45, 82%, 45%);
+$clr-primary-500: #3F637D;
+$clr-primary-600: #2B4355;
+$clr-secondary-500: #4c4171;
+$clr-secondary-600: #2b2541;
+$clr-accent-500: #efca5d;
+$clr-accent-600: #d1a215;
 
 body {
   margin: 4rem;
@@ -16,6 +16,35 @@ body {
 
 .btn {
   /* your code starts here */
+  border: 0;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 2em;
+  text: {
+    decoration: none;
+    transform: uppercase;
+  }
 
+  &__primary {
+    background: $clr-primary-500;
+    &:hover, &:focus {
+      background: $clr-primary-600;
+    }
+  }
+
+  &__secondary {
+    background: $clr-secondary-500;
+    &:hover, &:focus {
+      background: $clr-secondary-600;
+    }
+  }
+
+  &__accent {
+    background: $clr-accent-500;
+    &:hover, &:focus {
+      background: $clr-accent-600;
+    }
+  }
   /* your code ends here */
 }
