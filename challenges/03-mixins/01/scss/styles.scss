@@ -1,3 +1,50 @@
+$color-neutral-100: #F5F0F7;
+$color-neutral-900: #151017;
+$color-primary-400: #fe0000;
+$color-secondary-400: #1a00fe;
+$color-tertiary-400: #33cd33;
+$color-fourth-400: #800080;
+$color-fifth-400: #fefe00;
+$color-fifth-600: #ffa500;
+@mixin linear-gradient($color-1, $color-2, $angle) {
+  background-image: linear-gradient(
+    $angle,
+    $color-1,
+    $color-2
+  );
+}
+
+@mixin pseudo-underline($width, $height, $bg, $margin-block: 0) {
+  &::after {
+    content: '';
+    display: block;
+    height: $height;
+    width: $width;
+    margin-inline: auto;
+    margin-block: $margin-block;
+    background: $bg;
+  }
+}
+
+@mixin ui-element($size, $color, $bg-color, $hover-color:null, $hover-bg-color:null, $border-radius: null) {
+  display: inline-block;
+  padding-block: $size;
+  padding-inline: $size * 3;
+  color: $color;
+  background-color: $bg-color;
+
+  @if($border-radius) {
+    border-radius: $border-radius;
+  }
+
+  @if($hover-color and $hover-bg-color) {
+    &:hover, &:focus {
+      background-color: $hover-bg-color;
+      color: $hover-color;
+    }
+  }
+}
+
 body {
   font-family: system-ui;
   margin: 0;
@@ -6,6 +53,40 @@ body {
 .section-one,
 .section-two,
 .section-three {
+  color: $color-neutral-100;
   text-align: center;
   padding: 10vh 0;
+}
+
+.title {
+  @include pseudo-underline(min(50%, 75px), 1px, rgba($color-neutral-900, 0.8), 1em);
+}
+
+.section-one {
+  @include linear-gradient($color-primary-400, $color-secondary-400, 45deg);
+}
+.section-two {
+  @include linear-gradient($color-tertiary-400, $color-fourth-400, to bottom right);
+}
+.section-three {
+  color: $color-neutral-900;
+  @include linear-gradient($color-fifth-400, $color-fifth-600, .5turn);
+}
+
+.button-one {
+  text-decoration: none;
+  @include ui-element(0.75rem, $color-neutral-100, $color-primary-400, $color-neutral-100, $color-secondary-400);
+}
+
+.button-two {
+  text-decoration: none;
+  @include ui-element(0.75rem, $color-neutral-100, $color-fourth-400, $color-neutral-100, $color-tertiary-400, 0.5rem);
+}
+
+.badge-one {
+  @include ui-element($size: .5rem, $color: $color-fifth-600, $bg-color: $color-neutral-100, $border-radius: 100vw);
+}
+
+.badge-two {
+  @include ui-element($size: .5rem, $color: $color-fifth-600, $bg-color: $color-neutral-900, $border-radius: 100vw);
 }
