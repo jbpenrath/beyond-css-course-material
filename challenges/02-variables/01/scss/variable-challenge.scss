@@ -1,9 +1,15 @@
+$color-white: #F8F7F7;
+$color-black: #201E1F;
+$color-red: #DA3F0B;
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
+  background-color: $color-white;
+  color: $color-black;
   font-size: 1.75rem;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -15,16 +21,40 @@ body {
 }
 
 .card {
+  box-shadow: 0 0.5rem 1rem $color-black;
   display: grid;
   gap: 0.75em;
   width: min(90%, 60rem);
   padding: 2em;
+
+  &__title {
+    color: $color-red;
+  }
 }
 
 .btn {
   display: inline-block;
   padding: 0.5em 1.5em;
   text-decoration: none;
+  border: 2px solid $color-red;
+
+  &--primary {
+    background-color: $color-red;
+    color: $color-white;
+  }
+
+  &--outline {
+    color: $color-red;
+  }
+
+  &:hover, &:focus {
+    background-color: $color-black;
+    box-shadow: 0 0.5rem 1rem $color-red;
+  }
+
+  &:hover {
+    color: $color-white;
+  }
 }
 
 .flex-group {
