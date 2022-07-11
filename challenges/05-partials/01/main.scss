@@ -1,6 +1,10 @@
-@use "abstracts/colors";
-@use "abstracts/font-sizes";
+@use "abstracts/colors" as *;
+@use "abstracts/font-sizes" as *;
+@use "abstracts/mixins" as *;
 
 .card {
-  
+  font-size: $fs-400;
+  color: $clr-primary;
+
+  @include decorative-corner($clr-secondary);
 }
